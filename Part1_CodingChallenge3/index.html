@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Part1_CodingChallenge3</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part1_CodingChallenge3</title>
-</head>
+    <body>
+        <script>
+      function averagePoint(point) {
+          len = point.length;
+          sum = 0;
+          for (i = 0; i < len; i++) {
+              sum += point[i];
+          }
+          return sum / len;
+      }
 
-<body>
-    <script>
-        function averagePoint(point) {
-            sum = 0;
-            for (i = 0; i < point.lenght; i++) {
-                sum = sum + point[i];
-            }
-            return sum / 3;
-        }
+      function checkWinner1(teamDolphins, teamKoalas) {
+          t1 = averagePoint(teamDolphins);
+          t2 = averagePoint(teamKoalas);
+          winner = "";
+          if (t1 > t2)
+              winner = "Dolphins";
+          if (t1 < t2)
+              winner = "Koalas";
+          if (
+              t1 == t2
+          )
+              winner = "Draw (Hòa)";
 
-        teamDolphins = [96, 108, 89];
-        teamKoalas = [88, 91, 110];
+          console.log(winner == "" ? "Không có đội giành chiến thắng" : "Winer: ", winner);
+          console.log("Average point of Dolphins: " + averagePoint(teamDolphins));
+          console.log("Average point of Koalas: " + averagePoint(teamKoalas));
+      }
 
-        console.log(averagePoint(teamDolphins));
-        console.log(averagePoint(teamKoalas))
+
+      function checkWinner2(teamDolphins, teamKoalas) {
+        t1 = averagePoint(teamDolphins);
+        t2 = averagePoint(teamKoalas);
+          winner = "";
+          if (t1 > t2 && t1 >= 100)
+              winner = "Dolphins";
+          if (t1 < t2 && t2 >= 100)
+              winner = "Koalas";
+          if (
+              t1 == t2 &&
+              t1 >= 100 &&
+              t2 >= 100
+          )
+        
+              winner = "Draw (Hòa)";
+
+          console.log(winner == "" ? "Không có đội giành chiến thắng" : "Winer: ", winner);
+          console.log("Average point of Dolphins: " + averagePoint(teamDolphins));
+          console.log("Average point of Koalas: " + averagePoint(teamKoalas));
+      }
+
+      teamDolphins = [96, 108, 89];
+      teamKoalas = [88, 91, 110];
+      console.log("Data 1");
+      console.log(checkWinner1(teamDolphins, teamKoalas));
+
+      teamDolphins = [97, 112, 101];
+      teamKoalas = [109, 95, 123];
+      console.log("Data bonus 1");
+      console.log(checkWinner2(teamDolphins, teamKoalas));
+
+      teamDolphins = [97, 112, 101];
+      teamKoalas = [109, 95, 106];
+      console.log("Data bonus 2");
+      console.log(checkWinner2(teamDolphins, teamKoalas));
     </script>
-</body>
-
+    </body>
 </html>
