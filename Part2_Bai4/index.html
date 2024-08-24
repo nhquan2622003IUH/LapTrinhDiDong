@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part2_Bai4</title>
+</head>
+<body>
+    <script>
+        // Ham tinh tien tips
+        function calcTip(bill) {
+            if (bill >= 50 && bill <= 300) {
+                return bill * 0.15;
+            } else {
+                return bill * 0.2;
+            }
+        }
+
+        // Ham tinh trung binh
+        function calcAverage(arr) {
+            sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum / arr.length;
+        }
+
+        bills = [22,295,176,440,37,105,10,1100,86,52];
+        tips = [];
+        totals = [];
+
+        for (let i = 0; i < bills.length; i++) {
+            tips.push(calcTip(bills[i]));
+            totals.push(bills[i] + tips[i]);
+        }
+ 
+        console.log("Bills: ", bills);
+        console.log("Tips duoc tinh tu bills: ", tips);
+        console.log("Totals: ", totals);
+        console.log("Trung binh bills: ", calcAverage(bills));
+    </script>
+</body>
+</html>
