@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Part2_Bai2</title>
+    </head>
+    <body>
+        <script>
+            // Ham tinh tien tip
+        function calcTip(bill) {
+            return (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.2;        
+        }
+            // Kiem tra ham voi gia tri 100
+        console.log("Test function calcTip with value 100: ", calcTip(10));
+
+            // Kiem tra voi du lieu de bai
+        dataTest = [125,555,44];
+        tips = [];
+        for (let i = 0; i < dataTest.length; i++) {
+            tips.push(calcTip(dataTest[i]));
+        }
+        console.log("Tips: ", tips);
+
+            // Tinh tong tien
+        total = [];
+        total = dataTest.map((element, index) => {
+            return element + tips[index];
+        });
+        console.log("Total: ", total);
+
+    </script>
+    </body>
+</html>
