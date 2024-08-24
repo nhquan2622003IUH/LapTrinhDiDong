@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part4_DataStructure_Bai2</title>
+</head>
+
+<body>
+
+    <script>
+
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borrussia Dortmund',
+            players: [
+                [
+                    'Neuer',
+                    'Pavard',
+                    'Martinez',
+                    'Alaba',
+                    'Davies',
+                    'Kimmich',
+                    'Goretzka',
+                    'Coman',
+                    'Muller',
+                    'Gnarby',
+                    'Lewandowski',
+                ],
+                [
+                    'Burki',
+                    'Schulz',
+                    'Hummels',
+                    'Akanji',
+                    'Hakimi',
+                    'Weigl',
+                    'Witsel',
+                    'Hazard',
+                    'Brandt',
+                    'Sancho',
+                    'Gotze',
+                ],
+            ],
+            score: '4:0',
+            scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+                'Hummels'],
+            date: 'Nov 9th, 2037',
+            odds: {
+                team1: 1.33,
+                x: 3.25,
+                team2: 6.5,
+            },
+        };
+
+        function printGoals(...players) {
+            i = 1;
+            for (const player of players) {
+                console.log("Goal", (i++), ":", player);
+            }
+        }
+
+        printGoals(...game.scored);
+
+        const odds = Object.values(game.odds);
+        var avgOdd = () => {
+            let sum = 0;
+            for (const odd of odds) {
+                sum += odd;
+            }
+            return sum / odds.length;
+        }
+
+        console.log(avgOdd());
+        console.log("Odd of victory", game.team1, ":", game.odds.team1);
+        console.log("Odd of draw:", game.odds.x);
+        console.log("Odd of victory", game.team2, ":", game.odds.team2);
+
+        const scorers = {};
+        for (const player of game.scored) {
+            scorers[player] = (scorers[player] || 0) + 1;
+        }
+        console.log(scorers);
+
+    </script>
+</body>
+
+</html>
