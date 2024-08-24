@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part2_Bai1</title>
+</head>
+<body>
+    <script>
+        function calcAverage(points) {
+            let sum = 0;
+            points.forEach(element => {
+                sum += element;
+            });
+            return sum / points.length;
+        }
+
+        function checkWinner(avgDolphins, avgKaolas) {
+            if (avgDolphins >= 2 * avgKaolas) {
+                console.log("Dolphins win (",avgDolphins,"vs.",avgKaolas,")");
+            }
+            else if (avgKaolas >= 2 * avgDolphins) {
+                console.log("Kaolas win (",avgKaolas,"vs.",avgDolphins,")");
+            }
+            else {
+                console.log("No one wins");
+            }
+        }
+
+        Dolphins = [44,23,71];
+        Kaolas = [65,54,49];
+        checkWinner(calcAverage(Dolphins), calcAverage(Kaolas));
+
+        Dolphins = [85,54,41];
+        Kaolas = [23,34,27];
+        checkWinner(calcAverage(Dolphins), calcAverage(Kaolas));
+    </script>
+</body>
+</html>
