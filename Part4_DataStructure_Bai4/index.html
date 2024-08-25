@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part4_DataStructure_Bai4</title>
+</head>
+<label for="textarea">Textarea</label>
+<textarea name="textarea" id="textarea" style="width: 200px; height: 100px;">
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+    </textarea>
+
+<script>
+    let dataTest = document.getElementById("textarea").value;
+    function formatter() {
+        dataTest = dataTest.trim().toLowerCase();
+        dataTest = dataTest.replace(/ /g, '');
+        dataTest = dataTest.replace(/_./g, x => x[1].toUpperCase());
+        // Kiểu format khác cho chuỗi
+        // dataTest = dataTest.replace(/_(.)(.{2})/g, (match, x1, x2) => x1.concat(x2.toUpperCase()));
+        console.log(dataTest);
+    }
+    formatter();
+</script>
+
+<body>
+
+</body>
+
+</html>
