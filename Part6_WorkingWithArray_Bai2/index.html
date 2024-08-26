@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part6_WorkingWithArray_Bai2</title>
+</head>
+
+<body>
+    <script>
+        function calcAverageHumanAge(ages) {
+            const humanAges = ages.map(age => (age <= 2) ? age * 2 : 16 + age * 4);
+            const adults = humanAges.filter(aeg => aeg >= 18);
+            const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+            return average;
+        }
+        Data1 = [5, 2, 4, 1, 15, 8, 3];
+        Data2 = [16, 6, 10, 5, 6, 1, 4];
+
+        console.log(calcAverageHumanAge(Data1));
+        console.log(calcAverageHumanAge(Data2));
+    </script>
+</body>
+
+</html>
