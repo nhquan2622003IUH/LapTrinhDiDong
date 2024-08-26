@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part6_WorkingWithArray_Bai1</title>
+</head>
+<script>
+    function checkDogs(dogsJulia, dogsKate) {
+        const correctedJulia = dogsJulia.slice(1, -2);
+        const allDogs = [...correctedJulia, ...dogsKate];
+        allDogs.forEach((age, index) => {
+            number = index + 1;
+            status = age >= 3 ? "is an adult" : "is still a puppy";
+            console.log(`Dog number ${number} ${status}, an is ${age} years old `);
+        });
+    }
+
+    // Test data 1
+    const dogsJuliaData1 = [3, 5, 2, 12, 7];
+    const dogsKateData1 = [4, 1, 15, 8, 3];
+    console.log("----Test data 1----");
+    checkDogs(dogsJuliaData1, dogsKateData1);
+
+    // Test data 2
+    const dogsJuliaData2 = [9, 16, 6, 8, 3];
+    const dogsKateData2 = [10, 5, 6, 1, 4];
+    console.log("----Test data 2----");
+    checkDogs(dogsJuliaData2, dogsKateData2);
+</script>
+
+<body>
+
+</body>
+
+</html>
