@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part7_OOP_Bai1</title>
+</head>
+
+<body>
+    <script>
+        function Car(make) {
+            this.make = make;
+            this.speed = 0;
+        }
+
+        Car.prototype.accelerate = function () {
+            this.speed += 10;
+            console.log(`Car ${this.make} speed: ${this.speed} km/h`);
+        }
+
+        Car.prototype.brake = function () {
+            this.speed -= 5;
+            console.log(`Car ${this.make} speed: ${this.speed} km/h`);
+        }
+
+        var car1 = new Car('BMW');
+        var car2 = new Car('Mercedes');
+
+        for (let i = 0; i < 12; i++) {
+            car1.accelerate();
+        }
+
+        for (let i = 0; i < 10; i++) {
+            car2.accelerate();
+        }
+        car2.brake();
+
+    </script>
+</body>
+
+</html>
