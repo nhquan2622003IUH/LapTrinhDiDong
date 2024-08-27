@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part6_WorkingWithArray_Bai4</title>
+</head>
+
+<body>
+    <script>
+        const dogs = [
+            { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+            { weight: 8, curFood: 200, owners: ['Matilda'] },
+            { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+            { weight: 32, curFood: 340, owners: ['Michael'] },
+        ];
+
+        function checkRecommendedFood(curFood, recommendedFood) {
+            _min = recommendedFood * 0.9;
+            _max = recommendedFood * 1.1;
+            _message = 0; //"dog is eating the recommended amount.";
+            if (curFood < _min) {
+                _message = 1; //"dog is eating too little.";
+            } else if (curFood > _max) {
+                _message = 2 //"dog is eating too much.";
+            }
+            return _message;
+        }
+
+        function printMessage(x) {
+            if (x == 0)
+                return "dog is eating the recommended amount.";
+            if (x == 1)
+                return "dog is eating too little.";
+            if (x == 2)
+                return "dog is eating too much.";
+        }
+
+        dogs.forEach(dog => {
+            dog.recommendedFood = Math.round(dog.weight ** 0.75 * 28);
+        });
+        console.log(dogs);
+
+        const sarahDog = dogs.find(dog => dog.owners.includes('Sarah'));
+        sarahMessage = checkRecommendedFood(sarahDog.curFood, sarahDog.recommendedFood);
+        console.log(`Sarah's ${printMessage(sarahMessage)}`);
+
+        ownersEatTooMuch = dogs
+            .filter(dog => checkRecommendedFood(dog.curFood, dog.recommendedFood) == 2)
+            .flatMap(dog => dog.owners);
+        // console.log(ownersEatTooMuch);
+
+        ownersEatTooLittle = dogs
+            .filter(dog => checkRecommendedFood(dog.curFood, dog.recommendedFood) == 1)
+            .flatMap(dog => dog.owners);
+        // console.log(ownersEatTooLittle);
+
+        console.log(`${ownersEatTooMuch.join(' and ')}'s dog eat too much!`);
+        console.log(`${ownersEatTooLittle.join(' and ')}'s dog eat too little!`);
+
+        let exactlyDog = dogs.some(dog => dog.curFood == dog.recommendedFood);
+        console.log(`Is there any dog eating \"exactly\" the recommended amount? ${exactlyDog}`);
+
+        exactlyDog = dogs.some(dog => checkRecommendedFood(dog.curFood, dog.recommendedFood));
+        console.log(`Is there any dog eating \"okay\" the recommended amount? ${exactlyDog}`);
+
+        console.log('Sắp xếp tăng dần theo khẩu phần ăn được đề xuất');
+        const dogsCopy = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood);
+        console.log(dogsCopy);
+    </script>
+</body>
+
+</html>
