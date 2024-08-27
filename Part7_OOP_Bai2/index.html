@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part7_OOP_Bai2</title>
+</head>
+<script>
+    class CarCl {
+        constructor(make) {
+            this.make = make;
+            this.speed = 0; //km/h
+        }
+
+        get getSpeedUS() {
+            return this.speed / 1.6; // km\h -> mi/h
+        }
+
+        set setSpeedUS(speed) {
+            this.speed = speed * 1.6; // mi/h -> km/h
+        }
+
+        accelerate() {
+            this.speed += 10;
+            console.log(`Car ${this.make} speed: ${this.speed} km/h`);
+        }
+
+        brake() {
+            this.speed -= 5;
+            console.log(`Car ${this.make} speed: ${this.speed} km/h`);
+        }
+    }
+
+    const car = new CarCl('Ford');
+
+    for (let i = 0; i < 12; i++) {
+        car.accelerate();
+    }
+    console.log(`Car ${car.make} speed: ${car.getSpeedUS} mi/h`);
+
+    car.setSpeedUS = 52;
+    console.log('Dùng set để thiết lập tốc độ mới (52 mi/h) sẽ bằng ', car.speed, 'km/h');
+
+</script>
+
+<body>
+
+</body>
+
+</html>
