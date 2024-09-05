@@ -5,7 +5,7 @@ Array.prototype.myReduce = function (cbfn) {
     for (let i = 0; i < this.length; i++) {
         accumulator = cbfn(accumulator, this[i], i, this);
     }
-    return accumulator || 0;
+    return accumulator;
 }
 
 const initialValue = 10;
