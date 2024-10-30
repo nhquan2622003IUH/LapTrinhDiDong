@@ -1,13 +1,21 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './reducers'; // Tập hợp các reducer
-import rootSaga from './sagas'; // Tập hợp các saga
+import rootReducer from './rootReducer';
+import rootSaga from './rootSaga';
 
+// Create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+// Create the Redux store
+const store = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware)
+);
 
-// Chạy rootSaga để quản lý tất cả các Saga
+// Run the saga
 sagaMiddleware.run(rootSaga);
 
 export default store;
+
+
+
